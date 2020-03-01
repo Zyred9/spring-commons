@@ -1,0 +1,46 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: vip
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.102.223.221:3308/vip?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root#123
+  redis:
+    database: 15
+    host: 47.102.223.221
+    port: 6379
+    password: tecxen123
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 10000ms
+    timeout: 10000ms
+    ## SpringSeurity登录配置  密码admin
+#  security:
+#    user:
+#      name: zyred
+#      password: $2a$10$lRqcMxHMxjs3/D98veg1auM/W7vOxhbHq.fpjsCL696YL7SoXn6vC
+
+## TK-mapper commons
+mapper:
+  mappers: com.example.vip.aop.common.base.BaseMapper
+  identity: mysql
+
+swagger2:
+  enable: true
+
+## 开启打印SQL
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+## 生成图片验证码的宽度和高度
+hutool:
+  captcha:
+    width: 200
+    height: 100
+  qrcode:
+    suffix: .png
